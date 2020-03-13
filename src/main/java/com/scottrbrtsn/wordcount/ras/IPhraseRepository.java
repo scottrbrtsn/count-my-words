@@ -1,14 +1,12 @@
 package com.scottrbrtsn.wordcount.ras;
 
-import com.scottrbrtsn.wordcount.domain.Logs;
+import com.scottrbrtsn.wordcount.domain.Phrase;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface ILogsRepository extends JpaRepository<Logs, String> {
+public interface IPhraseRepository extends JpaRepository<Phrase, String> {
 
-    Logs findById(long id);
+    Phrase findById(long id);
 
 }

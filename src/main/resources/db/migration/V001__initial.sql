@@ -1,6 +1,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
-CREATE TABLE logs(
-
+CREATE TABLE phrases(
+  id BIGSERIAL PRIMARY KEY,
+  phrase VARCHAR
 );
-

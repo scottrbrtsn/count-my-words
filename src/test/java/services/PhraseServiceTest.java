@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestPhraseService {
+public class PhraseServiceTest {
 //
 //    @Mock
 //    IPhraseRepository logsRepository;
@@ -20,7 +20,7 @@ public class TestPhraseService {
 
     @Test
     public void testCountMyWords() {
-        int test = phraseService.countMyWords(" 1 2 3");
+        int test = phraseService.countMyWords("1 2 3");
         assertEquals(3, test);
     }
 

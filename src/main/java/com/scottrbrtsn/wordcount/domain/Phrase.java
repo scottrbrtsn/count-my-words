@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "logs")
 @Data
-public class Log {
+public class Phrase {
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id

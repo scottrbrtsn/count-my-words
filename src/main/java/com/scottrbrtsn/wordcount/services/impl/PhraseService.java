@@ -1,19 +1,14 @@
 package com.scottrbrtsn.wordcount.services.impl;
 
-import com.scottrbrtsn.wordcount.ras.ILogsRepository;
-import com.scottrbrtsn.wordcount.services.ILogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.scottrbrtsn.wordcount.services.IPhraseService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LogService implements ILogService {
-
-    @Autowired
-    ILogsRepository logsRepository;
+public class PhraseService implements IPhraseService {
 
     @Override
-    public String testMe(){
-        return "passed";
+    public int countMyWords(String phrase){
+        return phrase.split(" ").length;
     }
 
 }

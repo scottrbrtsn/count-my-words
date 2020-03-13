@@ -1,6 +1,6 @@
 package com.scottrbrtsn.wordcount.services;
 
-public interface ILogService {
+public interface IPhraseService {
 
-    String testMe();
+    int countMyWords(String phrase);
 }
