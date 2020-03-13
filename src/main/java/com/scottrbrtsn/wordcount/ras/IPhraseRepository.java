@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ILogsRepository extends JpaRepository<Logs, String> {
 
-    List<Logs> findById(long id);
+    Logs findById(long id);
 
 }

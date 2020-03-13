@@ -12,11 +12,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "logs")
 @Data
-public class Logs {
+public class Log {
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
     @Column
     private long id;
+
+    @Column
+    private String phrase;
 
 }

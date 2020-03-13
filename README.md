@@ -18,3 +18,16 @@ Assignment:
 Project Dependencies
 @Requires java 8+
 @Requires maven
+
+To Run
+1. `git clone https://github.com/scottrbrtsn/count-my-words.git`
+2. Run tests `mvn test` (#tDD)
+3. Compile `mvn clean`
+4. Build executable .jar `mvn install`
+5. All of the above `mvn clean install`
+	-  This is preferred.
+	-  When working with nested .jar projects, one ought build their .jars so other projects can reference any changes.  
+	-  Running tests during every build is also helpful during development.
+6. Run the project `mvn spring-boot:run`
+7. Build and run the project `mvn clean spring-boot:run`
+8. Feel free to create aliases to simplify any of the above commands. 
