@@ -1,5 +1,6 @@
 package com.scottrbrtsn.wordcount.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "logs")
 @Data
+@AllArgsConstructor
 public class Phrase {
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)

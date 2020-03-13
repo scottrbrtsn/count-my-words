@@ -1,17 +1,15 @@
 package com.scottrbrtsn.wordcount.controllers;
 
 import com.scottrbrtsn.wordcount.domain.Phrase;
+import com.scottrbrtsn.wordcount.managers.IPhraseManager;
 import com.scottrbrtsn.wordcount.ras.IPhraseRepository;
-import com.scottrbrtsn.wordcount.services.IPhraseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +20,7 @@ public class WordCountController {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCountController.class);
 
     @Autowired
-    private IPhraseService phraseService;
+    private IPhraseManager phraseManager;
 
     @Autowired
     private IPhraseRepository logsRepository;
@@ -33,9 +31,9 @@ public class WordCountController {
         return new ResponseEntity<>(logsRepository.findAll(), new HttpHeaders(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/count")
-    public ResponseEntity<List<Phrase>> countWords() {
+    @PostMapping(value = "/count")
+    public ResponseEntity<Integer> countWords(@RequestBody Phrase phrase) {
         LOGGER.debug("CountPhrases");
-        return new ResponseEntity<>(logsRepository.findAll(), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(phraseManager.countMyWords(phrase), new HttpHeaders(), HttpStatus.OK);
     }
 }

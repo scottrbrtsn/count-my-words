@@ -1,7 +1,9 @@
 package com.scottrbrtsn.wordcount.managers;
 
+import com.scottrbrtsn.wordcount.domain.Phrase;
+
 public interface IPhraseManager {
 
-    int countMyWords(String phrase);
+    int countMyWords(Phrase phrase);
 
 }
