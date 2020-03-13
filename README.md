@@ -30,4 +30,10 @@ To Run
 	-  Running tests during every build is also helpful during development.
 6. Run the project `mvn spring-boot:run`
 7. Build and run the project `mvn clean spring-boot:run`
-8. Feel free to create aliases to simplify any of the above commands. 
+8. Feel free to create aliases to simplify any of the above commands.
+
+
+Notes
+- While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
+
+ 
