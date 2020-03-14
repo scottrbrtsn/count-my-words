@@ -4,7 +4,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.util.Timeout;
 import com.scottrbrtsn.wordcount.actors.AkkaConfiguration;
-import com.scottrbrtsn.wordcount.actors.GreetingActor;
+import com.scottrbrtsn.wordcount.actors.PhraseActor;
 import com.scottrbrtsn.wordcount.actors.SpringExtension;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,15 +31,15 @@ public class PhraseServiceActorTest  extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void testCountMyWords_firstCountAndNoTotals_returnsNewTotal() throws Exception{
-        ActorRef greeter = system.actorOf(SpringExtension.SPRING_EXTENSION_PROVIDER.get(system)
-                .props("greetingActor"), "greeter");
+        ActorRef wordCounter = system.actorOf(SpringExtension.SPRING_EXTENSION_PROVIDER.get(system)
+                .props("phraseActor"), "greeter");
 
         FiniteDuration duration = FiniteDuration.create(1, TimeUnit.SECONDS);
         Timeout timeout = Timeout.durationToTimeout(duration);
 
-        Future<Object> result = ask(greeter, new GreetingActor.Greet("John"), timeout);
+        Future<Object> result = ask(wordCounter, new PhraseActor.Phrase(1, "1 2 3"), timeout);
 
-        Assert.assertEquals("Hello, John", Await.result(result, duration));
+        Assert.assertEquals(3, Await.result(result, duration));
 
     }
 
