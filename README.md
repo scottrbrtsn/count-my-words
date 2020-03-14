@@ -37,6 +37,11 @@ To Run
 11. Check the H2 Db at `http://localhost/9000/console` and select `jdbc:h2:~/count`
 12. Go to `http://localhost:9000/v2/api-docs` for basic api documentation, or `http://localhost:9000/swagger-ui.html` for pretty api documentation.
 
+## Heroku
+This app is running on Heroku
+1. Add a phrase `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com//phrases/count`
+2. Goto `https://count-my-words.herokuapp.com/phrases/`
+
 
 Notes
 - While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
