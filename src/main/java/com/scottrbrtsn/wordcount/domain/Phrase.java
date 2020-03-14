@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "logs")
+@Table(name = "phrases")
 @Data
 public class Phrase {
 

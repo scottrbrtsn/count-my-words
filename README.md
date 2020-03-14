@@ -10,14 +10,17 @@ Assignment:
 
 2. As a developer I want the service to ignore messages with duplicate ids. (i.e. ids that have already been processed) so that I don't duplicate work.
 
+## Extra Work
+Because I believe in small vertical slices as a single unit of work.
+
 3. As a user I want to be able to type a word or phrase into a web browser and it tell me how many words are in the phrase so that I don't have to count.
 
 4. As a user I want to be able to log into a public facing web page (production env) and type my word or phrase so that I don't have to run it locally. 
 
 
 Project Dependencies
-@Requires java 8+
-@Requires maven
+- @Requires java 8+
+- @Requires maven
 
 To Run
 1. `git clone https://github.com/scottrbrtsn/count-my-words.git`
