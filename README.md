@@ -1,5 +1,5 @@
 # Count My Words
-Assignment:
+## Assignment:
 
 1. As a developer I want a REST service with a single endpoint that accepts a json message with two fields.."id" and "message". (example: { "id": "123", "message": "hello world" })
 
@@ -18,11 +18,11 @@ Because I believe in small vertical slices as a single unit of work.
 4. As a user I want to be able to log into a public facing web page (production env) and type my word or phrase so that I don't have to run it locally. 
 
 
-Project Dependencies
+## Project Dependencies
 - @Requires java 8+
 - @Requires maven
 
-To Run
+## To Run
 1. `git clone https://github.com/scottrbrtsn/count-my-words.git`
 2. Run tests `mvn test` (#tDD)
 3. Compile `mvn clean`
@@ -49,4 +49,10 @@ This app is running on Heroku
 Notes
 - While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
 
- 
+ ## Design explanation
+The skeletal structure, in addition to your typical MVC, has its roots in Juval Lowy's iDesign architectural master class.  I have serendipitously worked with a number of architects who also happened to be alumni from Lowy's training.  He also speaks a great deal about actors and the actor model, and is where I studied that as well. 
+
+- Controllers only call managers
+- Managers call repositories to get data from a database or save
+- Managers call services to send the data
+- Services do the common heavy lifting of business logic
