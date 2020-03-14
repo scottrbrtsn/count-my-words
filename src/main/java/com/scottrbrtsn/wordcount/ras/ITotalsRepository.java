@@ -1,12 +1,12 @@
 package com.scottrbrtsn.wordcount.ras;
 
-import com.scottrbrtsn.wordcount.domain.Phrase;
+import com.scottrbrtsn.wordcount.domain.Total;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IPhraseRepository extends JpaRepository<Phrase, Long> {
+public interface ITotalsRepository extends JpaRepository<Total, String> {
 
-    Phrase findById(long id);
+    Total findById(String id);
 
 }

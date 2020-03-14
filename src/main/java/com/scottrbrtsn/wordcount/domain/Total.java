@@ -11,15 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "logs")
+@Table(name = "totals")
 @Data
-public class Phrase {
+public class Total {
 
     @Id
     @Column
-    private long id;
+    private String id;
 
     @Column
-    private String phrase;
+    private int total;
+
 
 }
