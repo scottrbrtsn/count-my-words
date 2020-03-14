@@ -31,10 +31,6 @@ To Run
 6. Run the project `mvn spring-boot:run`
 7. Build and run the project `mvn clean spring-boot:run`
 8. Feel free to create aliases to simplify any of the above commands.
-9. The service will run at `http://localhost:9000/`
-10. Run the following command to test the service
-- `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST http://localhost:9000/phrases/count`
-11. Check the H2 Db at `http://localhost/9000/console` and select `jdbc:h2:~/count`
 
 
 Notes

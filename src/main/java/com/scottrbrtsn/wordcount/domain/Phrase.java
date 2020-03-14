@@ -13,8 +13,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "logs")
 @Data
+@AllArgsConstructor
 public class Phrase {
 
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
     @Column
     private long id;

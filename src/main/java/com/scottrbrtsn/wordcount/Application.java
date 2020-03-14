@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.scottrbrtsn.wordcount"})
+@ComponentScan(basePackages={"com.scottrbrtsn.boiler.spring.plate"})
 @EnableJpaRepositories
 public class Application {
     
