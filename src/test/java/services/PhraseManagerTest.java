@@ -3,6 +3,7 @@ package services;
 import com.scottrbrtsn.wordcount.domain.Phrase;
 import com.scottrbrtsn.wordcount.managers.impl.PhraseManager;
 import com.scottrbrtsn.wordcount.ras.IPhraseRepository;
+import com.scottrbrtsn.wordcount.ras.ITotalsRepository;
 import com.scottrbrtsn.wordcount.services.impl.PhraseService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,19 +20,29 @@ import static org.mockito.ArgumentMatchers.anyString;
 public class PhraseManagerTest {
 
     @Mock
-    IPhraseRepository logsRepository;
+    private IPhraseRepository phraseRepository;
 
     @Mock
-    PhraseService phraseService;
+    private ITotalsRepository totalsRepository;
+
+    @Mock
+    private PhraseService phraseService;
 
     @InjectMocks
-    PhraseManager phraseManager;
+    private PhraseManager phraseManager;
 
     @Test
-    public void testCountMyWords() {
+    public void testCountMyWords_firstCountAndNoTotals_returnsNewTotal() {
+
         Mockito.when(phraseService.countMyWords(anyString())).thenReturn(3);
-        Mockito.when(logsRepository.findById(anyLong())).thenReturn(null);
-        int count = phraseManager.countMyWords(new Phrase(1, "1 2 3"));
+        Mockito.when(phraseRepository.findById(anyLong())).thenReturn(null);
+        Mockito.when(totalsRepository.findById(anyString())).thenReturn(null);
+
+        Phrase phrase = new Phrase();
+        phrase.setId(1);
+        phrase.setPhrase("1 2 3");
+
+        int count = phraseManager.countMyWords(phrase);
         assertEquals(3, count);
 
     }
