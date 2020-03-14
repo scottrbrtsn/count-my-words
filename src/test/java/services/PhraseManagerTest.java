@@ -31,7 +31,10 @@ public class PhraseManagerTest {
     public void testCountMyWords() {
         Mockito.when(phraseService.countMyWords(anyString())).thenReturn(3);
         Mockito.when(logsRepository.findById(anyLong())).thenReturn(null);
-        int count = phraseManager.countMyWords(new Phrase(1, "1 2 3"));
+        Phrase phrase = new Phrase();
+        phrase.setId(1);
+        phrase.setPhrase("1 2 3");
+        int count = phraseManager.countMyWords(phrase);
         assertEquals(3, count);
 
     }
