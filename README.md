@@ -10,12 +10,23 @@
 
 2. As a developer I want the service to ignore messages with duplicate ids. (i.e. ids that have already been processed) so that I don't duplicate work.
 
+## Heroku
+This app is running on Heroku.  Please understand, the Heroku free version puts the service to sleep after some time, so when it is hit with a request, the first request will take a few seconds to wake it up. 
+
+1. Add a phrase, e.g. `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com//phrases/count`
+2. Goto `https://count-my-words.herokuapp.com/phrases/` to see list of phrases
+
 ## Extra Work
 Because I believe in small vertical slices as a single unit of work.
 
 3. As a user I want to be able to type a word or phrase into a web browser and it tell me how many words are in the phrase so that I don't have to count.
 
 4. As a user I want to be able to log into a public facing web page (production env) and type my word or phrase so that I don't have to run it locally. 
+
+Very basic UI running at `https://scottrbrtsn.github.io/count-my-words-ui/`
+1. Enter your id (any string), and your phrase to count words, 
+2. Click count
+3. Code `https://github.com/scottrbrtsn/count-my-words-ui`
 
 
 ## Project Dependencies
@@ -40,11 +51,6 @@ Because I believe in small vertical slices as a single unit of work.
 11. Check the H2 Db at `http://localhost/9000/console` and select `jdbc:h2:~/count`
 12. Go to `http://localhost:9000/v2/api-docs` for basic api documentation, or `http://localhost:9000/swagger-ui.html` for pretty api documentation.
 
-## Heroku
-This app is running on Heroku
-1. Add a phrase `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com//phrases/count`
-2. Goto `https://count-my-words.herokuapp.com/phrases/`
-
 
 Notes
 - While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
@@ -59,8 +65,14 @@ The skeletal structure, in addition to your typical MVC, has its roots in Juval 
 - Managers call services to send the data to be processed
 - Services do the common heavy lifting of business logic
 
+## DB
+- Totals: keeps track of totals of any type.  Right now we just have word count totals (#scalability)
+- Phrases: keeps track of the phrases already processed.
+
 ### Actors
 Juval Lowy has a talk about the actor model, I recently watched this past year.  
 - https://www.youtube.com/watch?v=ukgjQaiZDYM
 - So conceptually, I have at least some knowledge.  Though, I have not implemented anything outside of this project.  
 - I took advantage of this project to experiment with the idea.
+
+

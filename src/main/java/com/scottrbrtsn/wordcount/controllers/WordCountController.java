@@ -24,12 +24,12 @@ public class WordCountController {
     private IPhraseManager phraseManager;
 
     @Autowired
-    private IPhraseRepository logsRepository;
+    private IPhraseRepository phraseRepository;
 
     @GetMapping(value = "/")
     public ResponseEntity<List<Phrase>> getPhrases() {
         LOGGER.debug("GetPhrases");
-        return new ResponseEntity<>(logsRepository.findAll(), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(phraseRepository.findAll(), new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping(value = "/count")
