@@ -49,10 +49,18 @@ This app is running on Heroku
 Notes
 - While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
 
- ## Design explanation
+ ## Architectural Design explanation
 The skeletal structure, in addition to your typical MVC, has its roots in Juval Lowy's iDesign architectural master class.  I have serendipitously worked with a number of architects who also happened to be alumni from Lowy's training.  He also speaks a great deal about actors and the actor model, and is where I studied that as well. 
+- http://www.idesign.net/About
 
-- Controllers only call managers
+### Basic design rules
+- Controllers only call managers or rarely directly to repositories
 - Managers call repositories to get data from a database or save
-- Managers call services to send the data
+- Managers call services to send the data to be processed
 - Services do the common heavy lifting of business logic
+
+### Actors
+Juval Lowy has a talk about the actor model, I recently watched this past year.  
+- https://www.youtube.com/watch?v=ukgjQaiZDYM
+- So conceptually, I have at least some knowledge.  Though, I have not implemented anything outside of this project.  
+- I took advantage of this project to experiment with the idea.

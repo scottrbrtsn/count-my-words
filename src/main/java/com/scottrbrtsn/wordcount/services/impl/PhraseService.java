@@ -11,4 +11,8 @@ public class PhraseService implements IPhraseService {
         return phrase.split(" ").length;
     }
 
+    public String print(String name){
+        return "hello " + name;
+    }
+
 }
