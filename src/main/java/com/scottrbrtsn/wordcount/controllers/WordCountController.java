@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/phrases")
+@CrossOrigin(origins = "https://scottrbrtsn.github.io")
 public class WordCountController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCountController.class);
