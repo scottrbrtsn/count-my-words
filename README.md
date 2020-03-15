@@ -15,7 +15,7 @@ This app is running on Heroku.  Please understand, the Heroku free version puts 
 If ths service goes to sleep, it will reset the db. Otherwise, it will keep a total, and so other users (me, another team member) will affect running totals.  Check the full list of processed words to verify total.
 
 1. Add a phrase, e.g. `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com/phrases/count`
-2. Goto `https://count-my-words.herokuapp.com/phrases/` to see list of phrases
+2. Goto `https://count-my-words.herokuapp.com/phrases/` to see the full list of processed phrases
 
 ## Extra Work 
 ### i.e. A basic React UI as a demonstration of the service to a user
