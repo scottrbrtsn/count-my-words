@@ -16,7 +16,8 @@ This app is running on Heroku.  Please understand, the Heroku free version puts 
 1. Add a phrase, e.g. `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com/phrases/count`
 2. Goto `https://count-my-words.herokuapp.com/phrases/` to see list of phrases
 
-## Extra Work i.e. A basic React UI as a demonstration of the service to a user
+## Extra Work 
+### i.e. A basic React UI as a demonstration of the service to a user
 Because I believe in small vertical slices as a single unit of work.
 
 3. As a user I want to be able to type a word or phrase into a web browser and it tell me how many words are in the phrase so that I don't have to count.
