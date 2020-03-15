@@ -11,6 +11,7 @@ import com.scottrbrtsn.wordcount.managers.IPhraseManager;
 import com.scottrbrtsn.wordcount.ras.IPhraseRepository;
 import com.scottrbrtsn.wordcount.ras.ITotalsRepository;
 import com.scottrbrtsn.wordcount.services.IPhraseService;
+import org.h2.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,8 @@ public class PhraseManager implements IPhraseManager {
     public int countMyWords(Phrase phrase, boolean useActor){
        int count;
 
-       if(phraseRepository.findById(phrase.getId()) == null){//new phrase
+       if(!StringUtils.isNullOrEmpty(phrase.getPhrase()) && !(phrase.getPhrase().trim().isEmpty())
+               && phraseRepository.findById(phrase.getId()) == null){//new phrase
            Total previousCount = totalRepository.findById("WordCount");
            int numNewWords = useActor ? actorCount(phrase) : phraseService.countMyWords(phrase.getPhrase());
            if(previousCount != null) {
