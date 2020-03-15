@@ -16,7 +16,7 @@ This app is running on Heroku.  Please understand, the Heroku free version puts 
 1. Add a phrase, e.g. `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com/phrases/count`
 2. Goto `https://count-my-words.herokuapp.com/phrases/` to see list of phrases
 
-## Extra Work
+## Extra Work i.e. A basic React UI as a demonstration of the service to a user
 Because I believe in small vertical slices as a single unit of work.
 
 3. As a user I want to be able to type a word or phrase into a web browser and it tell me how many words are in the phrase so that I don't have to count.
@@ -33,6 +33,7 @@ Very basic UI running at `https://scottrbrtsn.github.io/count-my-words-ui/`
 - @Requires java 8+
 - @Requires maven
 1. `git clone https://github.com/scottrbrtsn/count-my-words.git`
+1. `cd count-my-words`
 2. Run tests `mvn test` (#tDD)
 3. Delete previously built java files `mvn clean`
 3. Compile java fils `mvn compile`
@@ -49,6 +50,7 @@ Very basic UI running at `https://scottrbrtsn.github.io/count-my-words-ui/`
 11. Check the H2 Db at `http://localhost/9000/console` and select `jdbc:h2:~/count` U:sa PW:
 12. SwaggerAPI: Go to `http://localhost:9000/v2/api-docs` for basic api documentation, or `http://localhost:9000/swagger-ui.html` for pretty api documentation.
 
+please email or call me if you have any problems with the above.  
 
 Notes
 - While this service is running, it persists all messages it processes into an H2 embedded DB.  This will be reset if the service is reset.  To permanently persist, add a story to the backlog to convert H2 to Postgres or some other DB.  
