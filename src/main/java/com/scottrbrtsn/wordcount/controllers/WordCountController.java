@@ -39,7 +39,7 @@ public class WordCountController {
     }
 
     @PostMapping(value = "/count/akka")
-    public ResponseEntity<Integer> countWordsWithAnActor(@RequestBody Phrase phrase) throws Exception{
+    public ResponseEntity<Integer> countWordsWithAnActor(@RequestBody Phrase phrase){
         LOGGER.debug("CountPhrases");
         return new ResponseEntity<>(phraseManager.countMyWords(phrase, true), new HttpHeaders(), HttpStatus.OK);
     }

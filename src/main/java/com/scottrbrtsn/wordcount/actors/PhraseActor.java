@@ -26,7 +26,7 @@ public class PhraseActor extends UntypedActor {
     @Data
     @AllArgsConstructor
     public static class Phrase {
-        private long id;
+        private String id;
         private String phrase;
 
     }

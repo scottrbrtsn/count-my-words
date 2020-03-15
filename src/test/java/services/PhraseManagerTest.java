@@ -18,7 +18,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -47,11 +46,11 @@ public class PhraseManagerTest extends AbstractJUnit4SpringContextTests {
     public void testCountMyWords_firstCountAndNoTotals_returnsNewTotal() {
 
         Mockito.when(phraseService.countMyWords(anyString())).thenReturn(3);
-        Mockito.when(phraseRepository.findById(anyLong())).thenReturn(null);
+        Mockito.when(phraseRepository.findById(anyString())).thenReturn(null);
         Mockito.when(totalsRepository.findById(anyString())).thenReturn(null);
 
         Phrase phrase = new Phrase();
-        phrase.setId(1);
+        phrase.setId("1");
         phrase.setPhrase("1 2 3");
 
         int count = phraseManager.countMyWords(phrase, false);

@@ -37,7 +37,7 @@ public class PhraseServiceActorTest  extends AbstractJUnit4SpringContextTests {
         FiniteDuration duration = FiniteDuration.create(1, TimeUnit.SECONDS);
         Timeout timeout = Timeout.durationToTimeout(duration);
 
-        Future<Object> result = ask(wordCounter, new PhraseActor.Phrase(1, "1 2 3"), timeout);
+        Future<Object> result = ask(wordCounter, new PhraseActor.Phrase("1", "1 2 3"), timeout);
 
         Assert.assertEquals(3, Await.result(result, duration));
 
