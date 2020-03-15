@@ -77,6 +77,7 @@ Juval Lowy has a talk about the actor model, I recently watched this past year.
 - `curl -d '{"id":"1", "phrase":"1 2 3"}' -H "Content-Type: application/json" -X POST https://count-my-words.herokuapp.com//phrases/count/akka`
 
 ## TODO
+1. Combine Phrase.java into a single class. There was a scoping issue with how actors work. So the Phrase.java jpa entity class couldn't be easily reused.  
 1. Validate whether or not a string of chars not separated by a space are actually a word.
     - clearly this would be a significant undertaking beyond the scope of this exercise, but not completely impossible.
     - this could probably be done by hooking into some spell-check api
