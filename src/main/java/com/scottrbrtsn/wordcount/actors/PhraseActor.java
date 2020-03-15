@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class PhraseActor extends UntypedActor {
 
     @Autowired
-    private PhraseService phraseService;
-
-    // constructor
+    private PhraseActorService phraseService;
 
     @Override
     public void onReceive(Object message) throws Throwable {
@@ -29,8 +27,6 @@ public class PhraseActor extends UntypedActor {
     public static class Phrase {
         private long id;
         private String phrase;
-
-        // standard constructors/getters
 
     }
 }

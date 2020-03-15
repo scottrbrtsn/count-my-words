@@ -4,7 +4,7 @@ import com.scottrbrtsn.wordcount.services.IPhraseService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PhraseService implements IPhraseService {
+public class PhraseActorService implements IPhraseService {
 
     @Override
     public int countMyWords(String phrase){

@@ -6,4 +6,6 @@ public interface IPhraseManager {
 
     int countMyWords(Phrase phrase);
 
+    int countMyWordsWithAnActor(Phrase phrase) throws Exception;
+
 }
