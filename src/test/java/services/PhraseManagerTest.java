@@ -3,6 +3,7 @@ package services;
 import akka.actor.ActorSystem;
 import com.scottrbrtsn.wordcount.actors.AkkaConfiguration;
 import com.scottrbrtsn.wordcount.domain.Phrase;
+import com.scottrbrtsn.wordcount.domain.Total;
 import com.scottrbrtsn.wordcount.managers.impl.PhraseManager;
 import com.scottrbrtsn.wordcount.ras.IPhraseRepository;
 import com.scottrbrtsn.wordcount.ras.ITotalsRepository;
@@ -52,6 +53,35 @@ public class PhraseManagerTest extends AbstractJUnit4SpringContextTests {
         Phrase phrase = new Phrase();
         phrase.setId("1");
         phrase.setPhrase("1 2 3");
+
+        int count = phraseManager.countMyWords(phrase, false);
+        assertEquals(3, count);
+
+    }
+
+    @Test
+    public void testCountMyWords_firstCountAndNoTotalsEmptyPhrase_returnsNewTotal() {
+        Total total = new Total();
+        total.setTotal(3);
+        Mockito.when(totalsRepository.findById(anyString())).thenReturn(total);
+
+        Phrase phrase = new Phrase();
+        phrase.setId("1");
+        phrase.setPhrase("");
+
+        int count = phraseManager.countMyWords(phrase, false);
+        assertEquals(3, count);
+
+    }
+
+    @Test
+    public void testCountMyWords_firstCountAndNoTotalsNullPhrase_returnsNewTotal() {
+        Total total = new Total();
+        total.setTotal(3);
+        Mockito.when(totalsRepository.findById(anyString())).thenReturn(total);
+
+        Phrase phrase = new Phrase();
+        phrase.setId("1");
 
         int count = phraseManager.countMyWords(phrase, false);
         assertEquals(3, count);
