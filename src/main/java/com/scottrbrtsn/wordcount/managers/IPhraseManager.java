@@ -4,8 +4,7 @@ import com.scottrbrtsn.wordcount.domain.Phrase;
 
 public interface IPhraseManager {
 
-    int countMyWords(Phrase phrase);
+    int countMyWords(Phrase phrase, boolean useActor);
 
-    int countMyWordsWithAnActor(Phrase phrase) throws Exception;
 
 }

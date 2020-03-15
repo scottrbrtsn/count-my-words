@@ -34,12 +34,12 @@ public class WordCountController {
     @PostMapping(value = "/count")
     public ResponseEntity<Integer> countWords(@RequestBody Phrase phrase) {
         LOGGER.debug("CountPhrases");
-        return new ResponseEntity<>(phraseManager.countMyWords(phrase), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(phraseManager.countMyWords(phrase, false), new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping(value = "/count/akka")
     public ResponseEntity<Integer> countWordsWithAnActor(@RequestBody Phrase phrase) throws Exception{
         LOGGER.debug("CountPhrases");
-        return new ResponseEntity<>(phraseManager.countMyWordsWithAnActor(phrase), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(phraseManager.countMyWords(phrase, true), new HttpHeaders(), HttpStatus.OK);
     }
 }

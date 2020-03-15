@@ -1,5 +1,7 @@
 package services;
 
+import akka.actor.ActorSystem;
+import com.scottrbrtsn.wordcount.actors.AkkaConfiguration;
 import com.scottrbrtsn.wordcount.domain.Phrase;
 import com.scottrbrtsn.wordcount.managers.impl.PhraseManager;
 import com.scottrbrtsn.wordcount.ras.IPhraseRepository;
@@ -11,13 +13,17 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PhraseManagerTest {
+@ContextConfiguration(classes = AkkaConfiguration.class)
+public class PhraseManagerTest extends AbstractJUnit4SpringContextTests {
 
     @Mock
     private IPhraseRepository phraseRepository;
@@ -27,6 +33,12 @@ public class PhraseManagerTest {
 
     @Mock
     private PhraseService phraseService;
+
+    @Mock
+    private ActorSystem system;
+
+    @Mock
+    private ApplicationContext context;
 
     @InjectMocks
     private PhraseManager phraseManager;
@@ -42,7 +54,7 @@ public class PhraseManagerTest {
         phrase.setId(1);
         phrase.setPhrase("1 2 3");
 
-        int count = phraseManager.countMyWords(phrase);
+        int count = phraseManager.countMyWords(phrase, false);
         assertEquals(3, count);
 
     }
