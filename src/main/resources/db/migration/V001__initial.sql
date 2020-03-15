@@ -1,7 +1,7 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
 CREATE TABLE phrases(
-  id BIGSERIAL PRIMARY KEY,
+  id VARCHAR PRIMARY KEY,
   phrase VARCHAR
 );
 
